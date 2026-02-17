@@ -1,10 +1,12 @@
 describe("iFrame", () => {
-  it("Deve poder tocar o video de exemplo", () => {
+  beforeEach(() => {
     cy.start();
     cy.submitLoginForm("papito@webdojo.com", "katana123");
 
     cy.goTo("Video", "Video");
+  });
 
+  it("Deve poder tocar o video de exemplo", () => {
     cy.get("iframe[title='Video Player']")
       .should("exist")
       .its("0.contentDocument.body")
